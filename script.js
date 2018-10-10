@@ -4,6 +4,7 @@ const beerCont = document.querySelector(".beerCont");
 const beerLiquid = document.querySelector(".beerLiquid");
 const rectBeer = document.querySelector(".rectBeer");
 const beerNameTap = document.querySelector(".beerNameTap");
+let template = document.querySelector(".beerTemp").content;
 
 document.addEventListener("DOMContentLoaded", init);
 //const data = FooBar.getData();
@@ -66,15 +67,35 @@ function taskBartenders(bartenders) {
 }
 
 function createTapGraphContainers(taps) {
-  let template = document.querySelector(".beerTemp").content;
   let kegGraphs = document.querySelector(".kegGraphs");
   kegGraphs.innerHTML = "";
   taps.forEach(tap => {
     //tap.level
-    console.table(tap);
     let clone = template.cloneNode(true);
-    clone.querySelector("h1").textContent = tap.id;
+    let newHeight = (tap.level * 200) / tap.capacity + "px";
 
+    clone.querySelector("h1").textContent = tap.id;
+    clone.querySelector(".beerCont").style.height = "200px";
+    clone.querySelector(".beerLiquid").style.height = newHeight;
+    clone.querySelector(
+      ".thingyTop"
+    ).innerHTML = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 28">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #999;
+            }
+        </style>
+    </defs>
+    <title>tap-upper</title>
+    <g id="upperPartTap">
+        <rect class="cls-1" y="14" width="59" height="14" rx="2.4175" ry="2.4175" />
+        <rect class="cls-1" x="25" y="6" width="10" height="8" />
+        <rect class="cls-1" x="12" width="35" height="6" rx="1.5882" ry="1.5882" />
+    </g>
+</svg>`;
+
+    //console.log(newHeight);
     kegGraphs.appendChild(clone);
   });
 }
