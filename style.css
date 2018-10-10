@@ -1,0 +1,61 @@
+body {
+  width: 100vw;
+}
+/*grid*/
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+}
+/* little man */
+#queue {
+  grid-column: 1/-1;
+  height: 128px;
+  background: lightblue;
+}
+
+#qv {
+  background-image: url(man.png);
+  height: 100px;
+  transition: width 0.5s;
+}
+/* pie chart */
+#pie-chart {
+  background-image: url(/svg/final_1.svg);
+
+  background-repeat: no-repeat;
+}
+
+/****** keg graph *****/
+.kegGraph {
+  position: relative;
+  background-color: lightblue;
+}
+
+rect.rectContainer {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 2;
+}
+
+rect.rectBeer {
+  fill: goldenrod;
+  z-index: 0;
+}
+
+.kegBeers {
+  width: 100%;
+  height: 100%;
+  background-color: khaki;
+}
+
+.oneKegGraph {
+  width: 10%;
+  height: 100%;
+  float: left;
+}
+
+.beerNameTap {
+  word-break: break-all;
+  height: 10px;
+}
